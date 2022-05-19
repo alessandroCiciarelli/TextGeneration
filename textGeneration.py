@@ -52,11 +52,17 @@ try:
             ai = None
             return listaTesti
         except:
-            return ["Errore","Riprova più tardi"]
+            return ["Error","Try again"]
 
 
+    listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
 
-    choose = option_menu("Intelligenza Artificiale e SEO 🤖", ["Genera Contenuti"],
+    tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
+    Lang_selectbox = st.selectbox("Select your language ✈️", listLang)
+    idxL = listLang.index(Lang_selectbox)
+    selected_lang = tfLang[idxL]
+
+    choose = option_menu(traduttore("Intelligenza Artificiale e SEO 🤖", selected_lang), [traduttore("Genera Contenuti", selected_lang)],
                     icons=['keyboard'],
                     menu_icon="app-indicator", default_index=0 ,orientation='horizontal',
                     styles={
@@ -67,24 +73,19 @@ try:
     }
     )
 
-    listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
-
-    tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
-    Lang_selectbox = st.selectbox("In che mercato vuoi cercare", listLang)
-    idxL = listLang.index(Lang_selectbox)
-    selected_lang = tfLang[idxL]
-    inp = st.text_area('Scrivi una frase o un paragrafo di ispirazione per la nostra I.A.',height=200)
+    
+    inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200)
     c1, c2, c3 = st.columns(3)
-    lunghezza = c1.slider('Lunghezza massima del testo generato :', 50, 700,200,10)
-    follia = c2.slider('Imposta la "follia" del testo  :', 0.5, 1.0,0.6,0.1)
-    numTesti = c3.slider('Numero di testi da generare :', 1, 5,1,1)
+    lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10)
+    follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1)
+    numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1)
 
     try:
         if st.button("Genera testo🤘") :
             nuovo = traduttore(inp,"en")
             try:
                 ai = load_text_gen_model()
-                with st.spinner('Aspetta mentre rapiamo un COPYWRITER ... 🤖 Potrebbe volerci qualche minuto 🙏'):
+                with st.spinner(traduttore('Aspetta mentre rapiamo un COPYWRITER ... 🤖 Potrebbe volerci qualche minuto 🙏', selected_lang)):
                     inp = ai_text(nuovo,lunghezza,follia,numTesti)
                     ai = None
                     for i in range(len(inp)):
@@ -92,7 +93,7 @@ try:
                             st.write(traduttore(inp[i],selected_lang))
                     inp = None  
             except:
-                st.error("Il COPYWRITER è riuscito a scappare, riprova 🤔")
+                st.error(traduttore("Il COPYWRITER è riuscito a scappare, riprova 🤔", selected_lang))
     except Exception as e:
         st.error(e)
     finally:
