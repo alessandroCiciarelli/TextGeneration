@@ -41,7 +41,7 @@ try:
         a = aitextgen()
         return a
 
-    @st.cache()
+    @st.cache(show_spinner=False)
     def ai_text(inp,lunghezza, temp, num):
         listaTesti = []
         try:
