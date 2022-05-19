@@ -1,0 +1,4 @@
+streamlit
+aitextgen==0.5.2
+deep-translator
+streamlit-option-menu
