@@ -67,32 +67,6 @@ def premium_check(user,codice):
         st.session_state.premium = True
         return False
 
-if 'premium' not in st.session_state:
-    #set session premium key to false
-    st.session_state['premium'] =  True
-
-if 'nome' not in st.session_state:
-        st.session_state['nome'] =  ""
-        
-if st.session_state.premium == True:
-    with st.expander("👑 Accedi con le credenziali premium per sbloccare il generatore di testi 👑"):
-            st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
-            #define tree streamlit columns
-            cc1, cc2= st.columns(2)
-            user = cc1.text_input("Inserisci il tuo nome utente 👤")
-            codice = cc2.text_input("Inserisci il tuo codice di accesso 🔑")
-            dd1, dd2, dd3 = st.columns(3)
-            if dd2.button("Accedi ora e sblocca funzionalità PREMIUM 🔐"):
-                if premium_check(user,codice):
-                    st.success("Benvenuto "+user+" 👑 Tra poco questa sezione scomparirà 🤓") 
-                else:
-                    st.error("Codice o Nome Utente errati ❌")
-            st.write(" ")    
-            st.markdown("<center><h4>Vuoi Diventare un Utente Premium 👑 ?</h4>", unsafe_allow_html=True)
-            st.write(" ")
-            st.markdown("<center><h5><a href='https://www.intelligenzaartificialeitalia.net/la-seo-con-intelligenza-artificiale-tool-gratuito' >Passa ORA a PREMIUM 👑 per SOLI 5€ , non te ne pentirai 🤓</a><h5>", unsafe_allow_html=True)
-else:
-    st.success("Benvenuto "+st.session_state.nome+" 👑")
 
 try:
     from deep_translator import GoogleTranslator
@@ -127,6 +101,33 @@ try:
             return ["Error","Try again"]
 
 
+    if 'premium' not in st.session_state:
+        #set session premium key to false
+        st.session_state['premium'] =  True
+
+    if 'nome' not in st.session_state:
+            st.session_state['nome'] =  ""
+            
+    if st.session_state.premium == True:
+        with st.expander("👑 Accedi con le credenziali premium per sbloccare il generatore di testi 👑"):
+                st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
+                #define tree streamlit columns
+                cc1, cc2= st.columns(2)
+                user = cc1.text_input("Inserisci il tuo nome utente 👤")
+                codice = cc2.text_input("Inserisci il tuo codice di accesso 🔑")
+                dd1, dd2, dd3 = st.columns(3)
+                if dd2.button("Accedi ora e sblocca funzionalità PREMIUM 🔐"):
+                    if premium_check(user,codice):
+                        st.success("Benvenuto "+user+" 👑 Tra poco questa sezione scomparirà 🤓") 
+                    else:
+                        st.error("Codice o Nome Utente errati ❌")
+                st.write(" ")    
+                st.markdown("<center><h4>Vuoi Diventare un Utente Premium 👑 ?</h4>", unsafe_allow_html=True)
+                st.write(" ")
+                st.markdown("<center><h5><a href='https://www.intelligenzaartificialeitalia.net/la-seo-con-intelligenza-artificiale-tool-gratuito' >Passa ORA a PREMIUM 👑 per SOLI 5€ , non te ne pentirai 🤓</a><h5>", unsafe_allow_html=True)
+    else:
+        st.success("Benvenuto "+st.session_state.nome+" 👑")
+
     listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
 
     tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
@@ -134,8 +135,8 @@ try:
     idxL = listLang.index(Lang_selectbox)
     selected_lang = tfLang[idxL]
 
-    choose = option_menu(traduttore("Intelligenza Artificiale e SEO 🤖", selected_lang), [traduttore("Genera Contenuti", selected_lang)],
-                    icons=['keyboard'],
+    choose = option_menu(traduttore("Intelligenza Artificiale e SEO 🤖", selected_lang), [traduttore("Genera Contenuti", selected_lang),traduttore("Esempi e Tutorial", selected_lang)],
+                    icons=['keyboard','exclamation-triangle'],
                     menu_icon="app-indicator", default_index=0 ,orientation='horizontal',
                     styles={
     "container": {"color": "blak","padding": "0!important", "background-color": "transparent", "width": "100%"},
@@ -145,15 +146,16 @@ try:
     }
     )
 
-    
-    inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
-    c1, c2, c3 = st.columns(3)
-    lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10,disabled=st.session_state.premium)
-    follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1,disabled=st.session_state.premium)
-    numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1,disabled=st.session_state.premium)
+    with st.form("Genera Contenuti", clear_on_submit=False):
+        inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
+        c1, c2, c3 = st.columns(3)
+        lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10,disabled=st.session_state.premium)
+        follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1,disabled=st.session_state.premium)
+        numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1,disabled=st.session_state.premium)
+        VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang), disabled=st.session_state.premium) 
 
     try:
-        if st.button(traduttore("Genera testo🤘", selected_lang), disabled=st.session_state.premium) :
+        if VaiGenera :
             nuovo = traduttore(inp,"en")
             try:
                 ai = load_text_gen_model()
