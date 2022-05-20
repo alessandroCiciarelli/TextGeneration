@@ -167,33 +167,37 @@ try:
     else:
         st.success("Benvenuto "+st.session_state.nome+" 👑")
 
+    if choose == "Genera Contenuti":
+        with st.form("Genera Contenuti", clear_on_submit=False):
+            inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
+            c1, c2, c3 = st.columns(3)
+            lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10,disabled=st.session_state.premium)
+            follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1,disabled=st.session_state.premium)
+            numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1,disabled=st.session_state.premium)
+            VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang)) 
 
-    with st.form("Genera Contenuti", clear_on_submit=False):
-        inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
-        c1, c2, c3 = st.columns(3)
-        lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10,disabled=st.session_state.premium)
-        follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1,disabled=st.session_state.premium)
-        numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1,disabled=st.session_state.premium)
-        VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang)) 
-
-    try:
-        if VaiGenera and len(inp)>3:
-            nuovo = traduttore(inp,"en")
-            try:
-                ai = load_text_gen_model()
-                with st.spinner(traduttore('Aspetta mentre rapiamo un COPYWRITER ... 🤖 Potrebbe volerci qualche minuto 🙏', selected_lang)):
-                    inp = ai_text(nuovo,lunghezza,follia,numTesti)
-                    ai = None
-                    for i in range(len(inp)):
-                        with st.expander(f"Genero il testo {str(i+1)}"):
-                            st.write(traduttore(inp[i],selected_lang))
-                    inp = None  
-            except:
-                st.error(traduttore("Il COPYWRITER è riuscito a scappare, riprova 🤔", selected_lang))
-    except Exception as e:
-        st.error(e)
-    finally:
-        st.stop()
+        try:
+            if VaiGenera and len(inp)>3:
+                nuovo = traduttore(inp,"en")
+                try:
+                    ai = load_text_gen_model()
+                    with st.spinner(traduttore('Aspetta mentre rapiamo un COPYWRITER ... 🤖 Potrebbe volerci qualche minuto 🙏', selected_lang)):
+                        inp = ai_text(nuovo,lunghezza,follia,numTesti)
+                        ai = None
+                        for i in range(len(inp)):
+                            with st.expander(f"Genero il testo {str(i+1)}"):
+                                st.write(traduttore(inp[i],selected_lang))
+                        inp = None  
+                except:
+                    st.error(traduttore("Il COPYWRITER è riuscito a scappare, riprova 🤔", selected_lang))
+        except Exception as e:
+            st.error(e)
+        finally:
+            st.stop()
+    else:
+        st.markdown("<center><h4>🤖 Esempi e Tutorial 🤖</h4>", unsafe_allow_html=True)
+        st.markdown("Stiamo lavorando per creare una serie di Esempi e Tutorial 🤖", unsafe_allow_html=True)
+        st.markdown("Torna tra qualche giorno 🔙", unsafe_allow_html=True)
 
 except Exception as e:
     st.error("Errore: {}".format(e))
