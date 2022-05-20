@@ -55,6 +55,11 @@ hide_st_style = """
         outline: none;
     }
 
+    .css-1cpxqw2:focus:not(:active) {
+        border-color: rgb(46, 170, 0);
+        color: rgb(46, 170, 0);
+    }
+
     </style>
     
     """
