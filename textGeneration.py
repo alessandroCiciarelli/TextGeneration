@@ -167,7 +167,7 @@ try:
         VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang)) 
 
     try:
-        if VaiGenera :
+        if VaiGenera and len(inp)>3:
             nuovo = traduttore(inp,"en")
             try:
                 ai = load_text_gen_model()
