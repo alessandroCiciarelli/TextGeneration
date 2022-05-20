@@ -198,8 +198,8 @@ try:
         st.markdown("<center><h4>" + traduttore("🤖 Esempi e Tutorial 🤖", selected_lang) +"</h4>", unsafe_allow_html=True)
         st.markdown(traduttore("All'interno di questa sezione troverai tutte le guide necessarie per generare Contenuti sfruttando al meglio la nostra Inteligenza Artificiale 🤖", selected_lang), unsafe_allow_html=False)
         
-        with st.expander(traduttore("1🤖 Come generare Titoli efficaci per i post del tuo Blog", selected_lang)):
-            st.subheader(traduttore("Esempio 1", selected_lang))
+        with st.expander(traduttore("1🤖 Come generare Titoli efficaci per i post del tuo Blog 🚀", selected_lang)):
+            st.subheader(traduttore("Esempio 🚀", selected_lang))
             st.markdown(traduttore(""" Per generare dei titoli efficaci ti basterà fornire all'intelligenza Artificiale un paio di esempi, lasciando poi a lei il compito di consigliarti altri titoli.<br>
             Ad esempio se copi e incolli questo testo : <br><br><b>
             titoli di articoli che parla di digital marketing : <br>
@@ -209,6 +209,37 @@ try:
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
             Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
+        
+        with st.expander(traduttore("3🤖 Come generare l'introduzione al tuo Blog post  🚀", selected_lang)):
+            st.subheader(traduttore("Esempio 🚀", selected_lang))
+            st.markdown(traduttore(""" Supponiamo che dopo aver generato il titolo del tuo Articolo ti serva un Introduzione<br>
+            Facciamo finta che prima l'intelligenza artificiale ti ha suggerito come titolo <b>'Che cos'è la pubblicità digitale?'</b> : <br>
+            A questo punto ti basterà incollare un testo simile a questo per generare l'intruzione :<br><b><br>
+            Che cos'è la pubblicità digitale?<br>
+            <br>
+            In questo articolo vedremmo nel dettaglio cosa è la pubblicità digitale.<br>
+            Introduzione sulla pubblicità digitale:<br>
+            </b><br>
+            e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà le migliori Introduzioni che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
+
+        with st.expander(traduttore("3🤖 Come generare l'indice o sommario del tuo Blog post  🚀", selected_lang)):
+            st.subheader(traduttore("Esempio 🚀", selected_lang))
+            st.markdown(traduttore(""" Supponiamo che dopo aver generato una breve descrizione del nostro Articolo non abbiamo più idee. Quindi chiederemo all'intelligenza artificiale di generare un sommario per il nostro articolo<br>
+            A questo punto ti basterà incollare un testo simile a questo per generare un sommario o indice : <br><br><b>
+            Che cos'è la pubblicità digitale?<br>
+            In questo articolo vedremmo nel dettaglio cosa è la pubblicità digitale.<br>
+            <br>
+            Introduzione sulla pubblicità digitale:
+            La pubblicità digitale è l'uso di contenuti digitali, notizie, immagini o altri contenuti su Internet per promuovere la tua attività. Il contenuto digitale è ciò che è disponibile sul web. Il concetto di pubblicità digitale deriva dal concetto di "scarsità digitale". Questo concetto è il modo in cui la pubblicità digitale può essere utilizzata per vendere i tuoi prodotti e servizi. <br>
+            <br>   
+            INDICE:<br>
+            1) Come funziona la pubblicità digitale?<br>
+            2) Perchè usare la pubblicità digitale ?<br>
+            3) <br>
+            </b><br>
+            e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà di cosa parlare nel post del tuo Blog e nel capitolo del tuo Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
 
 except Exception as e:
     st.error("Errore: {}".format(e))
