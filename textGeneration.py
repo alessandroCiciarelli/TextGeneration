@@ -49,6 +49,9 @@ def premium_check(user,codice):
 if 'premium' not in st.session_state:
     #set session premium key to false
     st.session_state['premium'] =  True
+
+if 'nome' not in st.session_state:
+        st.session_state['nome'] =  ""
         
 if st.session_state.premium == True:
     with st.expander("👑 Sei un UTENTE PREMIUM ? 👑"):
