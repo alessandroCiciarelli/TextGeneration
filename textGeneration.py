@@ -54,7 +54,7 @@ if 'nome' not in st.session_state:
         st.session_state['nome'] =  ""
         
 if st.session_state.premium == True:
-    with st.expander("👑 Sei un UTENTE PREMIUM ? 👑"):
+    with st.expander("👑 Accedi con le credenziali premium per sbloccare il generatore di testi ? 👑"):
             st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
             #define tree streamlit columns
             cc1, cc2= st.columns(2)
