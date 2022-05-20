@@ -208,9 +208,12 @@ try:
                 3) <br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
+            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br>
+            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            ⚙️⚙️ Lunghezza massima del testo generato : 200<br>
+            ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
         
-        with st.expander(traduttore("3🤖 Come generare l'introduzione al tuo Blog post  🚀", selected_lang)):
+        with st.expander(traduttore("3🤖 Come generare l'introduzione al tuo Blog post, Ebook o Libro📚  🚀", selected_lang)):
             st.subheader(traduttore("Esempio 🚀", selected_lang))
             st.markdown(traduttore(""" Supponiamo che dopo aver generato il titolo del tuo Articolo ti serva un Introduzione<br>
             Facciamo finta che prima l'intelligenza artificiale ti ha suggerito come titolo <b>'Che cos'è la pubblicità digitale?'</b> : <br>
@@ -221,9 +224,12 @@ try:
             Introduzione sulla pubblicità digitale:<br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà le migliori Introduzioni che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
+            Vedrai che l'Inteligenza Artificiale ti consiglierà le migliori Introduzioni che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br>
+            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            ⚙️⚙️ Lunghezza massima del testo generato : 300 / 400 <br>
+            ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.70<br>""", selected_lang), unsafe_allow_html=True)
 
-        with st.expander(traduttore("3🤖 Come generare l'indice o sommario del tuo Blog post  🚀", selected_lang)):
+        with st.expander(traduttore("3🤖 Come generare l'indice o sommario del tuo Blog post, Ebook o Libro📚  🚀", selected_lang)):
             st.subheader(traduttore("Esempio 🚀", selected_lang))
             st.markdown(traduttore(""" Supponiamo che dopo aver generato una breve descrizione del nostro Articolo non abbiamo più idee. Quindi chiederemo all'intelligenza artificiale di generare un sommario per il nostro articolo<br>
             A questo punto ti basterà incollare un testo simile a questo per generare un sommario o indice : <br><br><b>
@@ -239,7 +245,25 @@ try:
             3) <br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà di cosa parlare nel post del tuo Blog e nel capitolo del tuo Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
+            Vedrai che l'Inteligenza Artificiale ti consiglierà di cosa parlare nel post del tuo Blog e nel capitolo del tuo Ebook o Libro📚.</b><br>
+            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            ⚙️⚙️ Lunghezza massima del testo generato : 200 <br>
+            ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
+
+        with st.expander(traduttore("4🤖 Come generare testi liberi tuo Blog post, Ebook o Libro📚  🚀", selected_lang)):
+            st.subheader(traduttore("Esempio 🚀", selected_lang))
+            st.markdown(traduttore(""" Per generare dei testi liberi efficaci ti basterà fornire all'intelligenza Artificiale delle domande mirate e precise, lasciando poi a lei il compito rispondere.<br>
+            Ad esempio se copi e incolli questo testo : <br><br><b>
+            In un mercato caratterizzato da cambiamenti estremi e repentini, il Marketing Manager è una figura fondamentale all’interno delle aziende di qualunque dimensione.
+            Egli coordina tutte quelle attività che precedono e costituiscono il lancio, nonché la successiva vendita, di un prodotto/servizio o un’intera gamma di prodotti/servizi.<br>
+            Cosa fa il Marketing Manager?<br>
+            </b><br>
+            e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
+            Vedrai che l'Inteligenza Artificiale ti genererà contenuti da copiare e incollare nel post del tuo Blog o nel capitolo del tuo Ebook o Libro📚.</b><br>
+            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            ⚙️⚙️ Lunghezza massima del testo generato : 200 <br>
+            ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
+
 
 except Exception as e:
     st.error("Errore: {}".format(e))
