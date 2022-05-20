@@ -200,15 +200,15 @@ try:
         
         with st.expander(traduttore("1🤖 Come generare Titoli efficaci per i post del tuo Blog", selected_lang)):
             st.subheader(traduttore("Esempio 1", selected_lang))
-            st.markdown(traduttore(""" Per generare dei titoli efficaci ti basterà fornire all'intelligenza Artificiale un paio di esempi, lasciando poi a lei il compito di consigliarti altri titoli.
-            Ad esempio se copi e incolli questo testo : **
-            'titoli di articoli che parla di digital marketing :
+            st.markdown(traduttore(""" Per generare dei titoli efficaci ti basterà fornire all'intelligenza Artificiale un paio di esempi, lasciando poi a lei il compito di consigliarti altri titoli.<br>
+            Ad esempio se copi e incolli questo testo : <br><b>
+            titoli di articoli che parla di digital marketing :
                 1) Cosa è il digital Marketing la guida completa
                 2) Introduzione al Digital Marketing
                 3)
-            ' **
-            e poi premi il bottone '🤘 GENERAMI i TESTI 🤘'
-            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.""", selected_lang), unsafe_allow_html=True)
+            </b><br>
+            e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b>""", selected_lang), unsafe_allow_html=True)
 
 except Exception as e:
     st.error("Errore: {}".format(e))
