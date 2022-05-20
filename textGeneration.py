@@ -10,15 +10,36 @@ hide_st_style = """
     footer {visibility: hidden;}
     header {visibility: hidden;margin:0;}
     .css-18e3th9 { 
-    flex: 1 1 0%; 
-    width: 100%;
-    padding: 1rem!important;
+        flex: 1 1 0%; 
+        width: 100%;
+        padding: 1rem!important;
     }
     @media (min-width: 576px)
-    .css-18e3th9 {
-    padding: 0.5rem!important;
+        .css-18e3th9 {
+        padding: 0.5rem!important;
     }
 
+    .st-c5 {
+        font-weight: 300;
+        font-size: medium;
+    }
+
+    .menu-title .icon[data-v-4323f8ce], .menu-title[data-v-4323f8ce] {
+        font-size: 1.7rem;
+        font-weight: 500;
+    }
+
+    .css-1cpxqw2{
+        width: 100%;
+        font-weight: 700;
+    }
+    .css-1cpxqw2:hover {
+        font-weight: 800;
+        border-color: rgb(46, 170, 0);
+        color: rgb(46, 170, 0);
+    }
+    </style>
+    
     """
 st.markdown(hide_st_style, unsafe_allow_html=True)
 
