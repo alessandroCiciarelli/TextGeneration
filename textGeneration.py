@@ -38,19 +38,19 @@ def premium_check(user,codice):
     #test if user is in ListaUser and if codice is in ListaChiavi
     if user in ListaUser and codice in ListaChiavi:
         #set session premium key to true
-        st.session_state.premium = True
+        st.session_state.premium = False
         st.session_state.nome = user
         return True
     else:
         #set session premium key to false
-        st.session_state.premium = False
+        st.session_state.premium = True
         return False
 
 if 'premium' not in st.session_state:
     #set session premium key to false
-    st.session_state['premium'] =  False
+    st.session_state['premium'] =  True
         
-if st.session_state.premium == False:
+if st.session_state.premium == True:
     with st.expander("👑 Sei un UTENTE PREMIUM ? 👑"):
             st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
             #define tree streamlit columns
