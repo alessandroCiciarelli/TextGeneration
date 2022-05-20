@@ -24,6 +24,11 @@ hide_st_style = """
         font-size: medium;
     }
 
+    .st-c5:hover {
+        font-weight: 800;
+        color: rgb(46, 170, 0);
+    }
+
     .menu-title .icon[data-v-4323f8ce], .menu-title[data-v-4323f8ce] {
         font-size: 1.7rem;
         font-weight: 500;
@@ -38,6 +43,13 @@ hide_st_style = """
         border-color: rgb(46, 170, 0);
         color: rgb(46, 170, 0);
     }
+
+    .css-1cpxqw2:active {
+        color: rgb(255, 255, 255);
+        border-color: rgb(46, 170, 0)
+        background-color: rgb(46, 170, 0)
+    }
+
     </style>
     
     """
@@ -100,7 +112,7 @@ try:
         except:
             return ["Error","Try again"]
     
-    
+
     listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
     tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
     Lang_selectbox = st.selectbox("Select your language ✈️", listLang)
@@ -126,7 +138,7 @@ try:
             st.session_state['nome'] =  ""
             
     if st.session_state.premium == True:
-        with st.expander("👑 Accedi con le credenziali premium per sbloccare il generatore di testi 👑"):
+        with st.expander(traduttore("👑 Accedi con le credenziali premium per sbloccare il generatore di testi 👑", selected_lang)):
                 st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
                 #define tree streamlit columns
                 cc1, cc2= st.columns(2)
