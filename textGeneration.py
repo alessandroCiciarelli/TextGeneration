@@ -99,7 +99,24 @@ try:
             return listaTesti
         except:
             return ["Error","Try again"]
+    
+    
+    listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
+    tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
+    Lang_selectbox = st.selectbox("Select your language ✈️", listLang)
+    idxL = listLang.index(Lang_selectbox)
+    selected_lang = tfLang[idxL]
 
+    choose = option_menu(traduttore("Intelligenza Artificiale e SEO 🤖", selected_lang), [traduttore("Genera Contenuti", selected_lang),traduttore("Esempi e Tutorial", selected_lang)],
+                    icons=['keyboard','exclamation-triangle'],
+                    menu_icon="app-indicator", default_index=0 ,orientation='horizontal',
+                    styles={
+    "container": {"color": "blak","padding": "0!important", "background-color": "transparent", "width": "100%"},
+    "icon": {"color": "blak", "font-size": "13px", "margin":"0px"}, 
+    "nav-link": {"color": "blak!important","font-size": "15px", "text-align": "left", "padding": "5px!important", "margin":"0px", "--hover-color": "#eee"},
+    "nav-link-selected": {"color": "blak","background-color": "#02ab21"},
+    }
+    )
 
     if 'premium' not in st.session_state:
         #set session premium key to false
@@ -128,23 +145,6 @@ try:
     else:
         st.success("Benvenuto "+st.session_state.nome+" 👑")
 
-    listLang = ["Italiano", "English", "German", "Spanish", "French", "Portuguese", "Russian", "Japanese", "Chinese", "Korean", "Arabic", "Polish", "Turkish", "Thai", "Vietnamese", "Indonesian", "Czech", "Dutch", "Greek", "Hindi", "Hungarian", "Norwegian", "Swedish", "Ukrainian", "Afrikaans", "Bengali", "Bulgarian", "Danish", "Finnish", "Filipino", "Georgian", "Hebrew", "Hmong", "Hungarian", "Kazakh", "Kyrgyz", "Latvian", "Lithuanian", "Malay", "Mongolian", "Myanmar", "Nepali", "Norwegian", "Pashto", "Persian", "Punjabi", "Romanian", "Serbian", "Somali", "Sotho", "Sundanese", "Tajik", "Tagalog", "Tamil", "Telugu", "Thai", "Turkish", "Uzbek", "Urdu", "Uighur", "Yiddish"]
-
-    tfLang = ["it", "en", "de", "es", "fr", "pt", "ru", "ja", "zh", "ko", "ar", "pl", "tr", "th", "vi", "id", "cs", "nl", "el", "hi", "no", "sv", "uk", "af", "bn", "bg", "da", "fi", "fil", "ka", "kk", "lv", "lt", "ms", "mn", "ne", "nb", "ps", "fa", "fa", "ro", "sr", "so", "su", "tg", "tl", "ta", "te", "th", "tk", "uz", "ur", "ug", "yi"]
-    Lang_selectbox = st.selectbox("Select your language ✈️", listLang, disabled=st.session_state.premium)
-    idxL = listLang.index(Lang_selectbox)
-    selected_lang = tfLang[idxL]
-
-    choose = option_menu(traduttore("Intelligenza Artificiale e SEO 🤖", selected_lang), [traduttore("Genera Contenuti", selected_lang),traduttore("Esempi e Tutorial", selected_lang)],
-                    icons=['keyboard','exclamation-triangle'],
-                    menu_icon="app-indicator", default_index=0 ,orientation='horizontal',
-                    styles={
-    "container": {"color": "blak","padding": "0!important", "background-color": "transparent", "width": "100%"},
-    "icon": {"color": "blak", "font-size": "13px", "margin":"0px"}, 
-    "nav-link": {"color": "blak!important","font-size": "15px", "text-align": "left", "padding": "5px!important", "margin":"0px", "--hover-color": "#eee"},
-    "nav-link-selected": {"color": "blak","background-color": "#02ab21"},
-    }
-    )
 
     with st.form("Genera Contenuti", clear_on_submit=False):
         inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
@@ -152,7 +152,7 @@ try:
         lunghezza = c1.slider(traduttore('Lunghezza massima del testo generato :', selected_lang), 50, 700,200,10,disabled=st.session_state.premium)
         follia = c2.slider(traduttore('Imposta la "follia" del testo  :', selected_lang), 0.5, 1.0,0.6,0.1,disabled=st.session_state.premium)
         numTesti = c3.slider(traduttore('Numero di testi da generare :', selected_lang), 1, 5,1,1,disabled=st.session_state.premium)
-        VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang), disabled=st.session_state.premium) 
+        VaiGenera= st.form_submit_button(traduttore("🤘 GENERAMI i TESTI 🤘", selected_lang)) 
 
     try:
         if VaiGenera :
