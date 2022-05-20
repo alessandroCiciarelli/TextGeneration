@@ -50,6 +50,11 @@ hide_st_style = """
         background-color: rgb(46, 170, 0);
     }
 
+    .css-1cpxqw2:focus {
+        box-shadow: rgb(46 170 0 / 50%) 0px 0px 0px 0.2rem;
+        outline: none;
+    }
+
     </style>
     
     """
