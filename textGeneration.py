@@ -167,7 +167,7 @@ try:
     else:
         st.success(traduttore("Benvenuto  ",selected_lang)+st.session_state.nome+" 👑")
 
-    if choose == "Genera Contenuti":
+    if choose == traduttore("Genera Contenuti", selected_lang):
         with st.form("Genera Contenuti", clear_on_submit=False):
             inp = st.text_area(traduttore('Scrivi una frase o un paragrafo di ispirazione per la nostra Inteligenza Artificiale', selected_lang),height=200,disabled=st.session_state.premium)
             c1, c2, c3 = st.columns(3)
@@ -208,8 +208,8 @@ try:
                 3) <br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br>
-            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br><br>
+            <b>⚙️ IMPOSTAZIONI CONSIGLIATE :<br><b>
             ⚙️⚙️ Lunghezza massima del testo generato : 200<br>
             ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
         
@@ -224,8 +224,8 @@ try:
             Introduzione sulla pubblicità digitale:<br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà le migliori Introduzioni che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br>
-            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà le migliori Introduzioni che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.</b><br><br>
+            <b>⚙️ IMPOSTAZIONI CONSIGLIATE :<br><b>
             ⚙️⚙️ Lunghezza massima del testo generato : 300 / 400 <br>
             ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.70<br>""", selected_lang), unsafe_allow_html=True)
 
@@ -245,8 +245,8 @@ try:
             3) <br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti consiglierà di cosa parlare nel post del tuo Blog e nel capitolo del tuo Ebook o Libro📚.</b><br>
-            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
+            Vedrai che l'Inteligenza Artificiale ti consiglierà di cosa parlare nel post del tuo Blog e nel capitolo del tuo Ebook o Libro📚.</b><br><br>
+            <b>⚙️ IMPOSTAZIONI CONSIGLIATE :<br><b>
             ⚙️⚙️ Lunghezza massima del testo generato : 200 <br>
             ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
 
@@ -259,10 +259,10 @@ try:
             Cosa fa il Marketing Manager?<br>
             </b><br>
             e poi premi il bottone <b> '🤘 GENERAMI i TESTI 🤘' <br>
-            Vedrai che l'Inteligenza Artificiale ti genererà contenuti da copiare e incollare nel post del tuo Blog o nel capitolo del tuo Ebook o Libro📚.</b><br>
-            ⚙️ IMPOSTAZIONI CONSIGLIATE :<br>
-            ⚙️⚙️ Lunghezza massima del testo generato : 200 <br>
-            ⚙️⚙️ Imposta la "follia" del testo : 0.50 / 0.60<br>""", selected_lang), unsafe_allow_html=True)
+            Vedrai che l'Inteligenza Artificiale ti genererà contenuti da copiare e incollare nel post del tuo Blog o nel capitolo del tuo Ebook o Libro📚.</b><br><br>
+            <b>⚙️ IMPOSTAZIONI CONSIGLIATE :<br><b>
+            ⚙️⚙️ Lunghezza massima del testo generato : 400 / 700 <br>
+            ⚙️⚙️ Imposta la "follia" del testo : 0.60 / 0.90<br>""", selected_lang), unsafe_allow_html=True)
 
 
 except Exception as e:
