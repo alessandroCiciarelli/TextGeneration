@@ -149,23 +149,23 @@ try:
             
     if st.session_state.premium == True:
         with st.expander(traduttore("👑 Accedi con le credenziali premium per sbloccare il generatore di testi 👑", selected_lang)):
-                st.markdown("<center><h5>Login Utenti Premium 👑</h5>", unsafe_allow_html=True)
+                st.markdown("<center><h5>"+traduttore("Login Utenti Premium 👑",selected_lang)+"</h5>", unsafe_allow_html=True)
                 #define tree streamlit columns
                 cc1, cc2= st.columns(2)
-                user = cc1.text_input("Inserisci il tuo nome utente 👤")
-                codice = cc2.text_input("Inserisci il tuo codice di accesso 🔑")
+                user = cc1.text_input(traduttore("Inserisci il tuo nome utente 👤",selected_lang))
+                codice = cc2.text_input(traduttore("Inserisci il tuo codice di accesso 🔑",selected_lang))
                 dd1, dd2, dd3 = st.columns(3)
-                if dd2.button("Accedi ora e sblocca funzionalità PREMIUM 🔐"):
+                if dd2.button(traduttore("Accedi ora e sblocca funzionalità PREMIUM 🔐",selected_lang)):
                     if premium_check(user,codice):
-                        st.success("Benvenuto "+user+" 👑 Tra poco questa sezione scomparirà 🤓") 
+                        st.success(traduttore("Benvenuto "+user+" 👑 Tra poco questa sezione scomparirà 🤓",selected_lang)) 
                     else:
-                        st.error("Codice o Nome Utente errati ❌")
+                        st.error(traduttore("Codice o Nome Utente errati ❌",selected_lang))
                 st.write(" ")    
-                st.markdown("<center><h4>Vuoi Diventare un Utente Premium 👑 ?</h4>", unsafe_allow_html=True)
+                st.markdown("<center><h4>"+traduttore("Vuoi Diventare un Utente Premium 👑 ?",selected_lang)+"</h4>", unsafe_allow_html=True)
                 st.write(" ")
-                st.markdown("<center><h5><a href='https://www.intelligenzaartificialeitalia.net/la-seo-con-intelligenza-artificiale-tool-gratuito' >Passa ORA a PREMIUM 👑 per SOLI 5€ , non te ne pentirai 🤓</a><h5>", unsafe_allow_html=True)
+                st.markdown("<center><h5><a href='https://www.intelligenzaartificialeitalia.net/la-seo-con-intelligenza-artificiale-tool-gratuito' >"+traduttore("Passa ORA a PREMIUM 👑 per SOLI 5€ , non te ne pentirai 🤓", selected_lang)+"</a><h5>", unsafe_allow_html=True)
     else:
-        st.success("Benvenuto "+st.session_state.nome+" 👑")
+        st.success(traduttore("Benvenuto  ",selected_lang)+st.session_state.nome+" 👑")
 
     if choose == "Genera Contenuti":
         with st.form("Genera Contenuti", clear_on_submit=False):
@@ -195,9 +195,20 @@ try:
         finally:
             st.stop()
     else:
-        st.markdown("<center><h4>🤖 Esempi e Tutorial 🤖</h4>", unsafe_allow_html=True)
-        st.markdown("Stiamo lavorando per creare una serie di Esempi e Tutorial 🤖", unsafe_allow_html=True)
-        st.markdown("Torna tra qualche giorno 🔙", unsafe_allow_html=True)
+        st.markdown("<center><h4>" + traduttore("🤖 Esempi e Tutorial 🤖", selected_lang) +"</h4>", unsafe_allow_html=True)
+        st.markdown(traduttore("All'interno di questa sezione troverai tutte le guide necessarie per generare Contenuti sfruttando al meglio la nostra Inteligenza Artificiale 🤖", selected_lang), unsafe_allow_html=False)
+        
+        with st.expander(traduttore("1🤖 Come generare Titoli efficaci per i post del tuo Blog", selected_lang)):
+            st.subheader(traduttore("Esempio 1", selected_lang))
+            st.write(traduttore(""" Per generare dei titoli efficaci ti basterà fornire all'intelligenza Artificiale un paio di esempi, lasciando poi a lei il compito di consigliarti altri titoli.
+            Ad esempio se copi e incolli questo testo : **
+            'titoli di articoli che parla di digital marketing :
+                1) Cosa è il digital Marketing la guida completa
+                2) Introduzione al Digital Marketing
+                3)
+            ' **
+            e poi premi il bottone '🤘 GENERAMI i TESTI 🤘'
+            Vedrai che l'Inteligenza Artificiale ti consiglierà una serie di titoli che potrebbero essere utili per il tuo Blog, Ebook o Libro📚.""", selected_lang))
 
 except Exception as e:
     st.error("Errore: {}".format(e))
